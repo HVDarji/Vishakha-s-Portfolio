@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishakha Darji - Junior Accountant Portfolio</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D9CDB',
+                        secondary: '#10B981'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #F9FAFB;
+        }
+        
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 1rem;
+            top: 3rem;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #2D9CDB, #10B981);
+        }
+        
+        .nav-sticky {
+            backdrop-filter: blur(10px);
+            background-color: rgba(249, 250, 251, 0.95);
+        }
+        
+        .floating-label {
+            position: relative;
+        }
+        
+        .floating-label input:focus + label,
+        .floating-label textarea:focus + label,
+        .floating-label input:not(:placeholder-shown) + label,
+        .floating-label textarea:not(:placeholder-shown) + label {
+            transform: translateY(-1.5rem) scale(0.85);
+            color: #2D9CDB;
+        }
+        
+        .floating-label label {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            color: #6B7280;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <nav class="fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- <div class="font-poppins font-bold text-xl text-gray-900"> -->
+                <div class="font-poppins font-bold text-2xl bg-gradient-to-r from-primary to-gray-900 bg-clip-text text-transparent">
+                    Vishakha Darji
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-primary transition-colors duration-300">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-primary transition-colors duration-300">About</a>
+                    <a href="#skills" class="text-gray-700 hover:text-primary transition-colors duration-300">Skills</a>
+                    <a href="#experience" class="text-gray-700 hover:text-primary transition-colors duration-300">Experience</a>
+                    <a href="#contact" class="text-gray-700 hover:text-primary transition-colors duration-300">Contact</a>
+                </div>
+                
+                <button class="md:hidden w-8 h-8 flex items-center justify-center" id="mobile-menu-btn">
+                    <i class="ri-menu-line text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-primary">Home</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-primary">About</a>
+                <a href="#skills" class="block py-2 text-gray-700 hover:text-primary">Skills</a>
+                <a href="#experience" class="block py-2 text-gray-700 hover:text-primary">Experience</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+        <div id="particles-js"></div>
+        <div class="hero-content w-full">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl">
+                    <h1 class="font-poppins font-bold text-5xl md:text-7xl text-gray-900 mb-4 fade-in">
+                        Vishakha Darji
+                    </h1>
+                    <h2 class="font-poppins font-medium text-2xl md:text-3xl text-primary mb-6 fade-in" style="animation-delay: 0.2s;">
+                        Junior Accountant
+                    </h2>
+                    <p class="text-xl md:text-2xl text-gray-700 mb-8 fade-in" style="animation-delay: 0.4s;">
+                        Tax-smart, detail-driven professional.
+                    </p>
+                    <!-- <button class="bg-primary text-white px-8 py-4 !rounded-button font-medium text-lg hover:bg-blue-600 transition-colors duration-300 fade-in whitespace-nowrap" style="animation-delay: 0.6s;">
+                        Explore My Work
+                    </button> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="w-80 h-80 mx-auto bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center">
+                        <div class="w-6 h-6 flex items-center justify-center">
+                            <i class="ri-user-line text-white text-8xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2 class="font-poppins font-bold text-4xl text-gray-900 mb-6">About Me</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        I am a dynamic accountant currently working at JV HL & Associates with comprehensive experience in GST compliance, Income Tax Returns, Tax Deducted at Source, and advanced Tally Prime operations.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        My expertise extends to client relationship management, where I excel in providing detailed financial reports and maintaining strong professional relationships. I am committed to delivering accurate, timely, and efficient accounting solutions.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        With a Bachelor of Commerce degree and hands-on experience in modern accounting practices, I bring both theoretical knowledge and practical skills to every project I undertake.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-poppins font-bold text-4xl text-center text-gray-900 mb-12">Skills & Expertise</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="skill-card bg-gray-50 p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary text-white rounded-xl">
+                        <i class="ri-calculator-line text-2xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-semibold text-xl text-gray-900 mb-2">Tally Prime</h3>
+                    <p class="text-gray-600">Advanced proficiency in Tally Prime for comprehensive accounting management</p>
+                </div>
+                
+                <div class="skill-card bg-gray-50 p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-secondary text-white rounded-xl">
+                        <i class="ri-file-text-line text-2xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-semibold text-xl text-gray-900 mb-2">GST Compliance</h3>
+                    <p class="text-gray-600">Expert handling of Goods and Services Tax filings and compliance</p>
+                </div>
+                
+                <div class="skill-card bg-gray-50 p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary text-white rounded-xl">
+                        <i class="ri-receipt-line text-2xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-semibold text-xl text-gray-900 mb-2">Income Tax Returns</h3>
+                    <p class="text-gray-600">Comprehensive ITR preparation and filing for individuals and businesses</p>
+                </div>
+                
+                <div class="skill-card bg-gray-50 p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-secondary text-white rounded-xl">
+                        <i class="ri-bank-line text-2xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-semibold text-xl text-gray-900 mb-2">Bank Reconciliation</h3>
+                    <p class="text-gray-600">Accurate BRS preparation and financial statement reconciliation</p>
+                </div>
+                
+                <div class="skill-card bg-gray-50 p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary text-white rounded-xl">
+                        <i class="ri-file-excel-2-line text-2xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-semibold text-xl text-gray-900 mb-2">MS Excel</h3>
+                    <p class="text-gray-600">Advanced Excel skills for data analysis and financial modeling</p>
+                </div>
+                
+                <div class="skill-card bg-gray-50 p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-secondary text-white rounded-xl">
+                        <i class="ri-customer-service-2-line text-2xl"></i>
+                    </div>
+                    <h3 class="font-poppins font-semibold text-xl text-gray-900 mb-2">Client Communication</h3>
+                    <p class="text-gray-600">Excellent interpersonal skills for client relationship management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-poppins font-bold text-4xl text-center text-gray-900 mb-12">Professional Experience</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="relative pl-8">
+                    <div class="timeline-line"></div>
+                    <div class="relative bg-white p-8 rounded-xl shadow-lg">
+                        <div class="absolute -left-6 top-8 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-lg"></div>
+                        <div class="mb-4">
+                            <h3 class="font-poppins font-bold text-2xl text-gray-900">Junior Accountant</h3>
+                            <p class="text-secondary font-semibold text-lg">JV HL & Associates</p>
+                            <p class="text-gray-600">July 2024 – Present</p>
+                        </div>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>Successfully filed GST returns for multiple clients, ensuring 100% compliance with regulatory requirements</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>Prepared and submitted Income Tax Returns for individual and corporate clients</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>Managed TDS calculations and filings, maintaining accurate records for audit purposes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>Utilized Tally Prime for comprehensive bookkeeping and financial reporting</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>Conducted Bank Reconciliation Statements and prepared detailed client reports</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>Maintained strong client relationships through effective communication and timely service delivery</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="font-poppins font-bold text-4xl text-gray-900 mb-8">Education</h2>
+                    <div class="bg-gray-50 p-8 rounded-xl">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-xl mr-4">
+                                <i class="ri-graduation-cap-line text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins font-bold text-xl text-gray-900 mb-2">Bachelor of Commerce</h3>
+                                <p class="text-secondary font-semibold mb-1">Hemchandracharya North Gujarat University (HNGU)</p>
+                                <p class="text-gray-600">2019 – 2022</p>
+                                <p class="text-gray-700 mt-3">Comprehensive study of accounting principles, business law, economics, and financial management</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="font-poppins font-bold text-4xl text-gray-900 mb-8">Languages</h2>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-6 rounded-xl flex items-center">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-lg mr-4">
+                                <i class="ri-global-line text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins font-semibold text-lg text-gray-900">English</h3>
+                                <p class="text-gray-600">Professional proficiency</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-xl flex items-center">
+                            <div class="w-10 h-10 flex items-center justify-center bg-secondary text-white rounded-lg mr-4">
+                                <i class="ri-translate-2 text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins font-semibold text-lg text-gray-900">Hindi</h3>
+                                <p class="text-gray-600">Native speaker</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-xl flex items-center">
+                            <div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-lg mr-4">
+                                <i class="ri-chat-3-line text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-poppins font-semibold text-lg text-gray-900">Gujarati</h3>
+                                <p class="text-gray-600">Native speaker</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-poppins font-bold text-4xl text-center text-gray-900 mb-12">Get In Touch</h2>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="font-poppins font-semibold text-2xl text-gray-900 mb-8">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-xl mr-4">
+                                <i class="ri-mail-line text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-poppins font-semibold text-lg text-gray-900">Email</h4>
+                                <p class="text-gray-700">vishudarji562@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-secondary text-white rounded-xl mr-4">
+                                <i class="ri-phone-line text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-poppins font-semibold text-lg text-gray-900">Phone</h4>
+                                <p class="text-gray-700">+91 90332 63850</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-xl mr-4">
+                                <i class="ri-map-pin-line text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-poppins font-semibold text-lg text-gray-900">Address</h4>
+                                <p class="text-gray-700">Sahaj Century, New Ranip<br>Ahmedabad 382470, Gujarat</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <form class="space-y-6">
+                        <div class="floating-label">
+                            <input type="text" id="name" placeholder=" " class="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition-colors duration-300">
+                            <label for="name">Full Name</label>
+                        </div>
+                        
+                        <div class="floating-label">
+                            <input type="email" id="email" placeholder=" " class="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition-colors duration-300">
+                            <label for="email">Email Address</label>
+                        </div>
+                        
+                        <div class="floating-label">
+                            <input type="text" id="subject" placeholder=" " class="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition-colors duration-300">
+                            <label for="subject">Subject</label>
+                        </div>
+                        
+                        <div class="floating-label">
+                            <textarea id="message" rows="5" placeholder=" " class="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition-colors duration-300 resize-none"></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary text-white py-4 !rounded-button font-semibold text-lg hover:bg-blue-600 transition-colors duration-300 whitespace-nowrap">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <!-- <h3 class="font-poppins font-bold text-xl mb-4">Vishakha Darji</h3> -->
+                     <div class="font-poppins font-bold text-2xl bg-gradient-to-r from-primary to-gray-900 bg-clip-text text-transparent">
+Vishakha Darji
+</div>
+                    <p class="text-gray-400 mb-4">Junior Accountant specializing in tax compliance and financial management.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors duration-300">
+                            <i class="ri-linkedin-line text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors duration-300">
+                            <i class="ri-mail-line text-lg"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-lg hover:bg-primary transition-colors duration-300">
+                            <i class="ri-phone-line text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-poppins font-semibold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors duration-300">About</a></li>
+                        <li><a href="#skills" class="text-gray-400 hover:text-white transition-colors duration-300">Skills</a></li>
+                        <li><a href="#experience" class="text-gray-400 hover:text-white transition-colors duration-300">Experience</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-poppins font-semibold text-lg mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>GST Filing & Compliance</li>
+                        <li>Income Tax Returns</li>
+                        <li>TDS Management</li>
+                        <li>Bank Reconciliation</li>
+                        <li>Financial Reporting</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Vishakha Darji. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script id="navbar-scroll">
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('nav-sticky');
+                } else {
+                    navbar.classList.remove('nav-sticky');
+                }
+            });
+        });
+    </script>
+
+    <script id="mobile-menu">
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+
+    <script id="smooth-scroll">
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script id="particles-init">
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    color: {
+                        value: '#2D9CDB'
+                    },
+                    shape: {
+                        type: 'circle'
+                    },
+                    opacity: {
+                        value: 0.1,
+                        random: false
+                    },
+                    size: {
+                        value: 3,
+                        random: true
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#2D9CDB',
+                        opacity: 0.1,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: 'repulse'
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: 'push'
+                        },
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            });
+        });
+    </script>
+
+    <script id="form-handler">
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+                
+                alert('Thank you for your message! I will get back to you soon.');
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>
